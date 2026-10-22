@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Funcionário</title>
+</head>
+
+<body>
+    <h1>Detalhes do Funcionário</h1>
+
+    <p><strong>ID:</strong> <span th:text="${funcionario.id}"></span></p>
+    <p><strong>Nome:</strong> <span th:text="${funcionario.nome}"></span></p>
+    <p><strong>Setor:</strong> <span
+            th:text="${funcionario.setor != null ? funcionario.setor.nome : 'Sem setor'}"></span></p>
+
+    <h2>Projetos vinculados</h2>
+    <ul th:if="${not #lists.isEmpty(projetos)}">
+        <li th:each="projeto : ${projetos}" th:text="${projeto.descricao}"></li>
+    </ul>
+    <p th:if="${#lists.isEmpty(projetos)}">Nenhum projeto vinculado.</p>
+
+    <a th:href="@{/funcionarios}">Voltar</a>
+</body>
+
+</html>

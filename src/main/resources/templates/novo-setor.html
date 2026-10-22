@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Setor</title>
+</head>
+
+<body>
+    <h1>Cadastrar Novo Setor</h1>
+    <form th:action="@{/setores}" th:object="${setor}" method="post">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" required /><br />
+        <button type="submit">Salvar</button>
+    </form>
+    <a th:href="@{/setores}">Voltar</a>
+</body>
+
+</html>
