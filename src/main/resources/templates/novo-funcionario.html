@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Funcionário</title>
+</head>
+
+<body>
+    <h1>Cadastrar Novo Funcionário</h1>
+    <form th:action="@{/funcionarios}" th:object="${funcionario}" method="post">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" required /><br />
+
+        <label>Setor:</label>
+        <select th:field="*{setor.id}">
+            <option th:each="setor : ${setores}" th:value="${setor.id}" th:text="${setor.nome}"></option>
+        </select><br />
+
+        <button type="submit">Salvar</button>
+    </form>
+    <a th:href="@{/funcionarios}">Voltar</a>
+</body>
+
+</html>
